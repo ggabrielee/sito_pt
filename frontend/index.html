@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Equilibrio · Personal Training</title>
+  <meta name="description" content="Allenamento personalizzato in uno studio privato. Prenota la tua sessione di prova gratuita.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Attiva subito le animazioni (evita il "flash" dei contenuti prima che script.js venga eseguito) -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">Studio<span>Equilibrio</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#metodo">Metodo</a>
+        <a href="#pacchetti">Pacchetti</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#prenota" class="btn btn--small">Prenota</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow reveal">Personal training · Studio privato</p>
+          <h1 class="hero__title reveal" style="--delay: 80ms">
+            Allenati con metodo.<br>
+            <em>Senti la differenza</em> in 8 settimane.
+          </h1>
+          <p class="hero__text reveal" style="--delay: 160ms">
+            Programmi su misura, un trainer dedicato e uno spazio silenzioso, lontano dalla confusione della palestra.
+            Partiamo dalla tua postura, dai tuoi tempi e dai tuoi obiettivi.
+          </p>
+          <div class="hero__actions reveal" style="--delay: 240ms">
+            <a href="#prenota" class="btn btn--accent">Prenota una sessione di prova</a>
+            <a href="#metodo" class="btn btn--ghost">Scopri il metodo</a>
+          </div>
+          <ul class="hero__stats reveal" style="--delay: 320ms">
+            <li><strong>12+</strong><span>anni di esperienza</span></li>
+            <li><strong>480</strong><span>clienti seguiti</span></li>
+            <li><strong>4.9★</strong><span>media recensioni</span></li>
+          </ul>
+        </div>
+
+        <figure class="hero__media reveal reveal--right" style="--delay: 200ms">
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=80"
+            alt="Personal trainer che segue una cliente durante un esercizio con i manubri"
+            width="1000" height="1250" fetchpriority="high">
+          <figcaption class="hero__badge">
+            <span class="dot"></span> Prima sessione gratuita
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ METODO ============ -->
+    <section class="section" id="metodo">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">Il metodo</p>
+          <h2 class="reveal" style="--delay: 80ms">Tre passi, nessuna scorciatoia</h2>
+        </header>
+
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__num">01</span>
+            <h3>Valutazione iniziale</h3>
+            <p>Analisi posturale, test di mobilità e un colloquio sulle tue abitudini. Da qui nasce il piano.</p>
+          </article>
+          <article class="feature reveal" style="--delay: 120ms">
+            <span class="feature__num">02</span>
+            <h3>Programma su misura</h3>
+            <p>Allenamenti costruiti sul tuo livello, aggiornati ogni 4 settimane in base ai progressi reali.</p>
+          </article>
+          <article class="feature reveal" style="--delay: 240ms">
+            <span class="feature__num">03</span>
+            <h3>Monitoraggio costante</h3>
+            <p>Check-in settimanali, misurazioni e supporto via chat tra una sessione e l'altra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section--tinted" id="pacchetti">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">Pacchetti</p>
+          <h2 class="reveal" style="--delay: 80ms">Scegli il percorso che fa per te</h2>
+          <p class="section__lead reveal" style="--delay: 160ms">Nessun vincolo nascosto. Puoi cambiare pacchetto in qualsiasi momento.</p>
+        </header>
+
+        <div class="pricing">
+          <article class="price-card reveal">
+            <h3 class="price-card__name">Singola</h3>
+            <p class="price-card__desc">Per provare o per allenarti quando vuoi.</p>
+            <p class="price-card__price"><span class="currency">€</span>45<span class="period">/sessione</span></p>
+            <ul class="price-card__list">
+              <li>Sessione 1:1 da 60 minuti</li>
+              <li>Scheda dell'allenamento</li>
+              <li>Prenotazione flessibile</li>
+            </ul>
+            <a href="#prenota" class="btn btn--outline btn--block">Prenota</a>
+          </article>
+
+          <article class="price-card price-card--featured reveal" style="--delay: 120ms">
+            <span class="price-card__tag">Il più scelto</span>
+            <h3 class="price-card__name">Mensile</h3>
+            <p class="price-card__desc">Il ritmo giusto per vedere risultati concreti.</p>
+            <p class="price-card__price"><span class="currency">€</span>299<span class="period">/mese</span></p>
+            <ul class="price-card__list">
+              <li>8 sessioni 1:1 al mese</li>
+              <li>Programma personalizzato</li>
+              <li>Piano alimentare di base</li>
+              <li>Supporto via chat</li>
+            </ul>
+            <a href="#prenota" class="btn btn--accent btn--block">Inizia ora</a>
+          </article>
+
+          <article class="price-card reveal" style="--delay: 240ms">
+            <h3 class="price-card__name">Annuale</h3>
+            <p class="price-card__desc">Per chi vuole un cambiamento duraturo.</p>
+            <p class="price-card__price"><span class="currency">€</span>2.990<span class="period">/anno</span></p>
+            <ul class="price-card__list">
+              <li>Sessioni illimitate (max 3/sett.)</li>
+              <li>Tutto del pacchetto Mensile</li>
+              <li>Valutazione trimestrale completa</li>
+              <li>2 mesi in omaggio</li>
+            </ul>
+            <a href="#prenota" class="btn btn--outline btn--block">Scegli annuale</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIANZE ============ -->
+    <section class="section" id="recensioni">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">Recensioni</p>
+          <h2 class="reveal" style="--delay: 80ms">Lo dicono i nostri clienti</h2>
+        </header>
+
+        <div class="testimonials">
+          <figure class="testimonial testimonial--wide reveal">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>
+              "Avevo provato tre palestre senza mai restare costante. Qui ho trovato qualcuno che mi segue davvero:
+              in sei mesi ho perso 9 kg e il mal di schiena è sparito."
+            </blockquote>
+            <figcaption>
+              <span class="avatar" style="--hue: 150">GL</span>
+              <span><strong>Giulia L.</strong><small>Cliente da 1 anno</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial reveal" style="--delay: 100ms">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>"Ambiente tranquillo, orari flessibili e un programma che si adatta ai miei turni."</blockquote>
+            <figcaption>
+              <span class="avatar" style="--hue: 30">MR</span>
+              <span><strong>Matteo R.</strong><small>Infermiere</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial reveal" style="--delay: 200ms">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>"A 58 anni ho ripreso ad allenarmi in sicurezza. Mi sento più forte di dieci anni fa."</blockquote>
+            <figcaption>
+              <span class="avatar" style="--hue: 200">AP</span>
+              <span><strong>Anna P.</strong><small>Pacchetto annuale</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial testimonial--wide reveal" style="--delay: 100ms">
+            <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+            <blockquote>
+              "La differenza la fa l'attenzione ai dettagli: ogni esercizio viene spiegato e corretto.
+              Dopo la gravidanza era esattamente ciò di cui avevo bisogno."
+            </blockquote>
+            <figcaption>
+              <span class="avatar" style="--hue: 340">SC</span>
+              <span><strong>Sara C.</strong><small>Cliente da 8 mesi</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINALE ============ -->
+    <section class="section" id="prenota">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__text">
+            <h2>La prima sessione è su di noi</h2>
+            <p>Lasciaci un contatto: ti richiamiamo entro 24 ore per fissare la tua prova gratuita.</p>
+          </div>
+          <form class="cta__form" id="ctaForm" novalidate>
+            <label class="sr-only" for="name">Nome</label>
+            <input id="name" name="name" type="text" placeholder="Il tuo nome" autocomplete="name" required>
+            <label class="sr-only" for="phone">Telefono</label>
+            <input id="phone" name="phone" type="tel" placeholder="Telefono" autocomplete="tel" required>
+            <button type="submit" class="btn btn--accent">Prenota la prova</button>
+            <p class="cta__feedback" id="ctaFeedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="logo">Studio<span>Equilibrio</span></a>
+      <p>Via Esempio 12, Milano · info@studioequilibrio.it</p>
+      <p>© <span id="year"></span> Studio Equilibrio</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

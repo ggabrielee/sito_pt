@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione prenotazioni · Studio Equilibrio</title>
+  <!-- Area interna: non deve finire nei motori di ricerca -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Riusa token e bottoni del sito pubblico -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin">
+
+  <header class="admin-header">
+    <div class="container admin-header__inner">
+      <p class="logo">Studio<span>Equilibrio</span> <small class="admin-header__tag">Gestione</small></p>
+      <div class="admin-header__actions">
+        <a class="admin-link" href="index.html">Vai al sito</a>
+        <button class="admin-link" type="button" id="logout" hidden>Esci</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <!-- ============ ACCESSO ============ -->
+    <section class="admin-login" id="login" aria-labelledby="login-title">
+      <h1 id="login-title">Accesso gestione</h1>
+      <p class="admin-muted">Inserisci la chiave configurata sul server (<code>Admin:ApiKey</code>).</p>
+
+      <form class="admin-form" id="login-form" novalidate>
+        <label for="admin-key">Chiave di accesso</label>
+        <input id="admin-key" name="key" type="password" required autocomplete="current-password"
+               aria-describedby="admin-key-error">
+        <p class="admin-error" id="admin-key-error" aria-live="polite"></p>
+        <button class="btn btn--accent btn--block" type="submit">Accedi</button>
+      </form>
+    </section>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section id="dashboard" aria-labelledby="dashboard-title" hidden>
+      <div class="dash-head">
+        <h1 id="dashboard-title">Richieste di prova</h1>
+        <button class="admin-link" type="button" id="refresh">Aggiorna</button>
+      </div>
+
+      <dl class="summary" aria-label="Riepilogo">
+        <div><dt>Da richiamare</dt><dd id="sum-pending">0</dd></div>
+        <div class="summary__late"><dt>Oltre 24 ore</dt><dd id="sum-late">0</dd></div>
+        <div><dt>Totale</dt><dd id="sum-total">0</dd></div>
+      </dl>
+
+      <div class="chips" role="group" aria-label="Filtra per stato">
+        <button class="chip" type="button" data-stato="DaRichiamare">Da richiamare</button>
+        <button class="chip" type="button" data-stato="Richiamato">Richiamati</button>
+        <button class="chip" type="button" data-stato="">Tutte</button>
+      </div>
+
+      <p class="admin-status" id="list-status" role="status" aria-live="polite"></p>
+
+      <ul class="requests" id="requests"></ul>
+    </section>
+  </main>
+
+  <!-- Modello di riga: admin.js lo clona e lo riempie con textContent (niente innerHTML con dati utente) -->
+  <template id="row-template">
+    <li class="request">
+      <div class="request__who">
+        <strong class="request__name"></strong>
+        <a class="request__phone"></a>
+      </div>
+      <p class="request__when"></p>
+      <span class="badge"></span>
+      <button class="action" type="button"></button>
+    </li>
+  </template>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# --- Build .NET (si rigenerano con dotnet build) ---
+bin/
+obj/
+
+# --- Database: contiene nomi e telefoni dei clienti, MAI su GitHub ---
+*.db
+*.db-shm
+*.db-wal
+
+# --- Configurazioni locali con eventuali segreti ---
+appsettings.*.local.json
+.env
+
+# --- File di editor e sistema ---
+.vs/
+.vscode/
+.claude/
+*.user
+Thumbs.db
+.DS_Store

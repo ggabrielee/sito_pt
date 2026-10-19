@@ -1,0 +1,174 @@
+/* =========================================================
+   Area di gestione prenotazioni
+   Si appoggia ai token e ai bottoni di styles.css.
+   Mobile-first: su smartphone ogni richiesta è una card.
+   ========================================================= */
+
+.admin { min-height: 100vh; }
+
+/* ---------- Header ---------- */
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(251, 250, 247, .92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.admin-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 68px;
+}
+.admin-header__tag {
+  margin-left: .5rem;
+  font: 600 .7rem var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  vertical-align: middle;
+}
+.admin-header__actions { display: flex; gap: 1.25rem; }
+
+.admin-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: 500 .92rem var(--font-sans);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.admin-link:hover { color: var(--ink); }
+
+.admin-main { padding-block: clamp(2rem, 5vw, 3.5rem) 5rem; }
+.admin h1 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.4rem); }
+.admin-muted { margin-top: .5rem; color: var(--ink-soft); }
+.admin code { color: var(--sage-deep); }
+
+/* ---------- Accesso ---------- */
+.admin-login { max-width: 26rem; margin: 2rem auto 0; }
+.admin-form { display: grid; gap: .6rem; margin-top: 2rem; }
+.admin-form label { font-size: .9rem; font-weight: 500; }
+.admin-form input {
+  min-height: 52px;
+  padding: 0 1.1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  font: inherit;
+}
+.admin-form input:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(143, 169, 153, .25); }
+.admin-form input[aria-invalid="true"] { border-color: var(--accent); }
+.admin-error { min-height: 1.4em; font-size: .88rem; color: var(--accent-hover); }
+
+/* ---------- Dashboard ---------- */
+.dash-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .75rem;
+  margin-block: 1.75rem 1.5rem;
+}
+.summary > div {
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.summary dt { font-size: .78rem; color: var(--ink-soft); }
+.summary dd { font: 600 2rem/1.2 var(--font-serif); font-variant-numeric: lining-nums tabular-nums; }
+.summary__late dd { color: var(--accent); }
+
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip {
+  min-height: 42px;
+  padding: .5rem 1.1rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 .88rem var(--font-sans);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--sage); color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--sage-deep); border-color: var(--sage-deep); color: #fff; }
+
+.admin-status { min-height: 1.5em; margin-block: 1.25rem .75rem; font-size: .88rem; color: var(--ink-soft); }
+.admin-status.is-error { color: var(--accent-hover); }
+
+/* ---------- Elenco richieste ---------- */
+.requests { display: grid; gap: .75rem; }
+
+.request {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .75rem 1rem;
+  align-items: center;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+/* Richiesta non ancora richiamata dopo 24 ore: la promessa del sito è a rischio */
+.request.is-late { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+.request.is-done { opacity: .6; }
+
+.request__who { display: grid; min-width: 0; }
+.request__name { font-weight: 600; overflow-wrap: anywhere; }
+.request__phone {
+  justify-self: start;
+  color: var(--sage-deep);
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.request__when { grid-column: 1 / -1; font-size: .85rem; color: var(--ink-soft); }
+.request.is-late .request__when { color: var(--accent-hover); font-weight: 500; }
+
+.badge {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.badge--DaRichiamare { background: #fbe9e0; color: var(--accent-hover); }
+.badge--Richiamato   { background: var(--bg-tint); color: var(--sage-deep); }
+
+.action {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  padding: .5rem 1rem;
+  background: transparent;
+  border: 1.5px solid var(--sage);
+  border-radius: 999px;
+  font: 600 .88rem var(--font-sans);
+  color: var(--sage-deep);
+  cursor: pointer;
+}
+.action:hover { background: var(--sage-deep); border-color: var(--sage-deep); color: #fff; }
+.action[disabled] { opacity: .5; cursor: progress; }
+
+.empty { padding: 2.5rem 1rem; text-align: center; color: var(--ink-soft); }
+
+/* ---------- Desktop: una riga per richiesta ---------- */
+@media (min-width: 760px) {
+  .summary { grid-template-columns: repeat(3, 13rem); }
+  .request {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) 8.5rem 13rem;
+    padding: 1rem 1.5rem;
+  }
+  .request__when { grid-column: auto; }
+  .badge { grid-column: auto; grid-row: auto; justify-self: start; }
+  .action { grid-column: auto; }
+}
